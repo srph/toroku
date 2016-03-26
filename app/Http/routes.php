@@ -22,10 +22,11 @@ Route::post('/', ['as' => 'register', 'uses' => function(App\Http\Requests\Regis
 		'password'
 	]);
 
-	// $user = new User();
-	// $user->username = $inputs['username'];
-	// $user->password = $inputs['password'];
-	// $user->save();
+	$user = new App\User();
+	$user->email = $inputs['email'];
+	$user->username = $inputs['username'];
+	$user->password = $inputs['password'];
+	$user->save();
 
 	return view('success')->with('message',
 		'Your account has been successfully registered!');
