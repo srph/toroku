@@ -1,0 +1,26 @@
+.form-control {
+  display: block;
+  padding: 7px 8px;
+  height: 35px;
+  width: 100%;
+  border: 1px solid #ddd;
+  outline: 0;
+  transition: 0.2s all;
+}
+
+.form-control:focus {
+  border-color: #2196F3;
+}
+
+.form-group {
+  margin-bottom: 15px;
+}
+
+.form-group > label {
+  display: block;
+  width: 100%;
+  text-transform: uppercase;
+  font-size: 9px;
+  letter-spacing: 2px;
+  margin-bottom: 4px;
+}
