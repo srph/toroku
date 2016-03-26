@@ -15,6 +15,14 @@
     		{{ csrf_field() }}
 
         <div class="form-group">
+          <label for="email">Email</label>
+          <input type="email" name="email" id="email" class="form-control" placeholder="my@email.com" value="{{ old('email') }}">
+          @if($errors->has('email'))
+            <div class="alert alert-danger">{{ $errors->first('email') }}</div>
+          @endif
+        </div>
+
+        <div class="form-group">
           <label for="username">Username</label>
     		  <input type="text" name="username" id="username" class="form-control" placeholder="johndoe" value="{{ old('username') }}">
           @if($errors->has('username'))

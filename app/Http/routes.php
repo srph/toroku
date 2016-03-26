@@ -17,6 +17,7 @@ Route::get('/', ['as' => 'home', 'uses' => function () {
 
 Route::post('/', ['as' => 'register', 'uses' => function(App\Http\Requests\RegistrationRequest $request) {
 	$inputs = $request->only([
+		'email',
 		'username',
 		'password'
 	]);
