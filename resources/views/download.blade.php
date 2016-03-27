@@ -5,11 +5,9 @@
 @stop
 
 @section('content')
-  <div class="alert alert-narrow u-text-center form-group">
-    It may take a while, so sit back and relax!
-  </div>
+  <h1 class="awesome-heading">Download Client</h1>
 
-  <a href="{{ $url }}" class="btn" target="_blank">
+  <a href="{{ $url }}" class="btn form-group" target="_blank">
     Download Client →
   </a>
 @stop

@@ -24,3 +24,7 @@
   letter-spacing: 2px;
   margin-bottom: 4px;
 }
+
+.form-actions:not(:last-child) {
+  margin-right: 20px;
+}
