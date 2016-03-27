@@ -1,7 +1,7 @@
 @extends('layouts.main')
 
 @section('title')
-  Registration Success!
+  Download
 @stop
 
 @section('content')
