@@ -1,7 +1,7 @@
 @extends('layouts.main')
 
 @section('title')
-  Valiant ROSE
+  Registration
 @stop
 
 @section('content')
