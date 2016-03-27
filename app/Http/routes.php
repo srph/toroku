@@ -47,7 +47,7 @@ Route::post('/', ['as' => 'register', 'uses' => function(
 			'code' => $user->confirmation_code
 		];
 
-		$mail->send('emails.welcome', $data, function($message) use($user) {
+		$mailer->send('emails.welcome', $data, function($message) use($user) {
 			$message->to($user->email);
 			$message->subject('Email Verification');
 		});
