@@ -67,7 +67,7 @@ Route::post('/', ['as' => 'register', 'uses' => function(
 	return view('success')->with('message', $message);
 }]);
 
-Route::get('/{code}', ['as' => 'register.confirmation', 'uses' => function($code) {
+Route::get('/auth/confirm/{code}', ['as' => 'register.confirmation', 'uses' => function($code) {
 	try {
 		$user = App\User::where('confirmation_code', $code)->firstOrFail();
 	} catch(Illuminate\Database\Eloquent\ModelNotFoundException $e) {
