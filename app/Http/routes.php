@@ -32,11 +32,11 @@ Route::post('/', ['as' => 'register', 'uses' => function(
 	$user->email = $inputs['email'];
 	$user->username = $inputs['username'];
 	$user->password = $inputs['password'];
-	$user->access = 100;
+	$user->accesslevel = 100;
 
 	if ($confirmed) {
 		$user->confirmation_code = str_random();
-		$user->access = 0;
+		$user->accesslevel = 0;
 	}
 
 	$user->save();
@@ -69,7 +69,7 @@ Route::get('/{code}', ['as' => 'register.confirmation', 'uses' => function($code
 	}
 
 	$user->confirmation_code = '';
-	$user->access = 100;
+	$user->accesslevel = 100;
 	$user->save();
 
 	return view('confirmation_success');
