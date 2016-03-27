@@ -26,14 +26,22 @@ Route::post('/', ['as' => 'register', 'uses' => function(
 		'password'
 	]);
 
+	$confirmed = $config->get('valiant.email_confirmation');
+
 	$user = new App\User();
 	$user->email = $inputs['email'];
 	$user->username = $inputs['username'];
 	$user->password = $inputs['password'];
-	$user->confirmation_code = str_random();
+	$user->access = 100;
+
+	if ($confirmed) {
+		$user->confirmation_code = str_random();
+		$user->access = 0;
+	}
+
 	$user->save();
 
-	if ($config->get('valiant.email_confirmation')) {
+	if ($confirmed) {
 		$data = [
 			'email' => $user->email,
 			'confirmation_code' => $user->confirmation_code
@@ -59,6 +67,10 @@ Route::get('/{code}', ['as' => 'register.confirmation', 'uses' => function($code
 	} catch(Illuminate\Database\Eloquent\ModelNotFoundException $e) {
 		return view('confirmation_404');
 	}
+
+	$user->confirmation_code = '';
+	$user->access = 100;
+	$user->save();
 
 	return view('confirmation_success');
 }])
