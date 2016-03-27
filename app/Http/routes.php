@@ -43,7 +43,7 @@ Route::post('/', ['as' => 'register', 'uses' => function(
 
 	if ($confirmed) {
 		$data = [
-			'email' => $user->email,
+			'username' => $user->username,
 			'code' => $user->confirmation_code
 		];
 
