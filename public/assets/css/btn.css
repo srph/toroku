@@ -9,7 +9,13 @@
   text-decoration: none;
   background: #2196F3;
   border: 1px solid transparent;
+  border-radius: 25px;
   outline: 0;
+  transition: 0.15s all;
+}
+
+.btn:hover {
+  background: #4CA9F3
 }
 
 .btn-block {
