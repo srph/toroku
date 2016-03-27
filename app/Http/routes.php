@@ -63,7 +63,7 @@ Route::post('/', ['as' => 'register', 'uses' => function(
 
 Route::get('/{code}', ['as' => 'register.confirmation', 'uses' => function($code) {
 	try {
-		$user = App\User::where('confirmation_code', $code)->first();
+		$user = App\User::where('confirmation_code', $code)->firstOrFail();
 	} catch(Illuminate\Database\Eloquent\ModelNotFoundException $e) {
 		return view('confirmation_404');
 	}
