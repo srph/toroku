@@ -15,7 +15,11 @@ Route::get('/', ['as' => 'home', 'uses' => function () {
     return view('index');
 }]);
 
-Route::post('/', ['as' => 'register', 'uses' => function(App\Http\Requests\RegistrationRequest $request) {
+Route::post('/', ['as' => 'register', 'uses' => function(
+	App\Http\Requests\RegistrationRequest $request,
+	Illuminate\Config\Repository $config,
+	Illuminate\Mail\Mailer $mailer) {
+
 	$inputs = $request->only([
 		'email',
 		'username',
@@ -26,8 +30,35 @@ Route::post('/', ['as' => 'register', 'uses' => function(App\Http\Requests\Regis
 	$user->email = $inputs['email'];
 	$user->username = $inputs['username'];
 	$user->password = $inputs['password'];
+	$user->confirmation_code = str_random();
 	$user->save();
 
-	return view('success')->with('message',
-		'Your account has been successfully registered!');
+	if ($config->get('valiant.email_confirmation')) {
+		$data = [
+			'email' => $user->email,
+			'confirmation_code' => $user->confirmation_code
+		];
+
+		$mail->send('emails.welcome', $data, function($message) {
+			$message->to($inputs['email']);
+			$message->subject('Email Verification');
+		});
+
+		$message = 'You have been registered. ' .
+			'But, you will need to confirm your email address first!';
+	} else {
+		$message = 'Your account has been successfully registered!';
+	}
+
+	return view('success')->with('message', $message);
 }]);
+
+Route::get('/{code}', ['as' => 'register.confirmation', 'uses' => function($code) {
+	try {
+		$user = App\User::where('confirmation_code', $code)->first();
+	} catch(Illuminate\Database\Eloquent\ModelNotFoundException $e) {
+		return view('confirmation_404');
+	}
+
+	return view('confirmation_success');
+}])

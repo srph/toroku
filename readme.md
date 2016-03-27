@@ -11,9 +11,14 @@ $composer install
 ```
 $ artisan migrate
 ```
-- Copy `.env.example` to `.env`, then configure
+- Copy `.env.example` to `.env`.
 ```
 $ cp .env.example .env
+```
+- Then configure (especially the email configuration).
+```bash
+MAIL_USERNAME=<YOUR_EMAIL>
+MAIL_PASSWORD=<YOUR_PASSWORD>
 ```
 
 ## Preview
