@@ -42,4 +42,10 @@
     	</form>
     </div>
   </div>
+
+  <script>
+    ;(function($email) {
+      $email.focus();
+    })(document.getElementById('email'));
+  </script>
 @stop
