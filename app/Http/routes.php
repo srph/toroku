@@ -73,4 +73,4 @@ Route::get('/{code}', ['as' => 'register.confirmation', 'uses' => function($code
 	$user->save();
 
 	return view('confirmation_success');
-}])
+}]);
