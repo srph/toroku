@@ -8,7 +8,7 @@
   <div class="container">
     <div class="narrow-container">
       <div class="alert alert-danger u-text-center form-group">
-        Oops, the confirmation code doesn't exist anymore. Perhaps, you may have already activated your email.
+        Oops, the confirmation code doesn't exist. Perhaps, you may have already activated your email.
       </div>
 
       <a href="{{ route('home') }}" class="btn">
