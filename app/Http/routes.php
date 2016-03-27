@@ -15,6 +15,11 @@ Route::get('/', ['as' => 'home', 'uses' => function () {
     return view('index');
 }]);
 
+Route::get('/download', ['as' => 'download', 'uses' => function (Illuminate\Config\Repository $config) {
+    return view('download')
+    	->with('url', $config->get('valiant.client_download_url'));
+}]);
+
 Route::post('/', ['as' => 'register', 'uses' => function(
 	App\Http\Requests\RegistrationRequest $request,
 	Illuminate\Config\Repository $config,

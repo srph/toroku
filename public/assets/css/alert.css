@@ -9,6 +9,10 @@
   background: #ddd;
 }
 
+.alert-narrow {
+  max-width: 200px;
+}
+
 .alert-danger {
   background: red;
 }

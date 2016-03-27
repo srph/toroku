@@ -27,7 +27,7 @@
       <div class="grid-cell grid-cell-4">
         <div class="list-group">
           <a href="{{ route('home') }}" class="active">Registration</a>
-          <a href="#">Download</a>
+          <a href="{{ route('download') }}">Download</a>
         </div>
       </div>
 
