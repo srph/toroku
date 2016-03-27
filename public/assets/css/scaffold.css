@@ -13,14 +13,11 @@ h1, h2, h3, h4, h5, h6, p {
 }
 
 .container {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100vh;
-}
-
-.narrow-container {
-  width: 250px;
+  padding-top: 50px;
+  padding-bottom: 50px;
+  margin-left: auto;
+  margin-right: auto;
+  width: 800px;
 }
 
 .u-text-center {

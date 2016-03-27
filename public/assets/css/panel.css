@@ -1,3 +1,17 @@
 .panel {
-  
+  border: 1px solid #ddd;
+  border-radius: 4px;  
+}
+
+.panel > .panel-heading {
+  padding: 10px;
+  font-size: 10px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: #fff;
+  background: #ddd;
+}
+
+.panel > .panel-body {
+  padding: 20px;
 }

@@ -5,15 +5,11 @@
 @stop
 
 @section('content')
-  <div class="container">
-    <div class="narrow-container">
-      <div class="alert alert-danger u-text-center form-group">
-        Oops, the confirmation code doesn't exist. Perhaps, you may have already activated your email.
-      </div>
-
-      <a href="{{ route('home') }}" class="btn">
-        ← Back
-      </a>
-    </div>
+  <div class="alert alert-danger u-text-center form-group">
+    Oops, the confirmation code doesn't exist. Perhaps, you may have already activated your email.
   </div>
+
+  <a href="{{ route('home') }}" class="btn">
+    ← Back
+  </a>
 @stop
