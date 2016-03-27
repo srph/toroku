@@ -44,7 +44,7 @@ Route::post('/', ['as' => 'register', 'uses' => function(
 	if ($confirmed) {
 		$data = [
 			'email' => $user->email,
-			'confirmation_code' => $user->confirmation_code
+			'code' => $user->confirmation_code
 		];
 
 		$mail->send('emails.welcome', $data, function($message) {
