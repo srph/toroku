@@ -17,7 +17,8 @@ Route::get('/', ['as' => 'home', 'uses' => function () {
 
 Route::get('/download', ['as' => 'download', 'uses' => function (Illuminate\Config\Repository $config) {
     return view('download')
-    	->with('url', $config->get('valiant.client_download_url'));
+    	->with('url', $config->get('valiant.client_download_url'))
+    	->with('mirrors', $config->get('valiant.client_mirror_urls'));
 }]);
 
 Route::post('/', ['as' => 'register', 'uses' => function(

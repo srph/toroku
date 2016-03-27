@@ -25,6 +25,6 @@
   margin-bottom: 4px;
 }
 
-.form-actions:not(:last-child) {
-  margin-right: 20px;
+.form-actions > .btn:not(:last-child) {
+  margin-right: 10px;
 }
